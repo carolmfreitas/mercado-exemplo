@@ -8,11 +8,14 @@ public class Produto {
 	private String nome; 
 	
 	private String fabricante;
+	
+	private double preco;
 
-	public Produto(String nome, String fabricante) {
+	public Produto(String nome, String fabricante, double preco) {
 		this.id = UUID.randomUUID().toString();
 		this.nome = nome;
 		this.fabricante = fabricante;
+		this.preco = preco;
 	}
 	
 	public String getId() {

@@ -2,30 +2,35 @@ package exemplo;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Estoque {
+public class ProdutoRepository {
 	
 	private Map<String,Produto> catalogo;
 	
-	public Estoque() {
+	public ProdutoRepository() {
 		this.catalogo = new HashMap<String,Produto>();
 	}
 	
+	public List<Produto> getAll(){
+		return (List<Produto>) this.catalogo.values();
+	}
+	
 	public void addProduto(Produto p) {
-		catalogo.put(p.getId(), p);
+		this.catalogo.put(p.getId(), p);
 	}
 	
 	public void deletaProduto(String id) {
-		catalogo.remove(id);
+		this.catalogo.remove(id);
 	}
 	
 	public void editaProduto(Produto p) {
-		catalogo.replace(p.getId(), p);
+		this.catalogo.replace(p.getId(), p);
 	}
 	
 	public Produto recuperaProduto(String id) {
-		return catalogo.get(id);
+		return this.catalogo.get(id);
 	}
 	
 	public ArrayList<Produto> listaProdutos() {
@@ -36,6 +41,18 @@ public class Estoque {
 		}
 		
 		return lista;
+	}
+	
+	public List<Produto> listarProdByName(String nome){
+		List<Produto> prods = new ArrayList<Produto>();
+		
+		for(Produto p: getAll()) {
+			if(p.getNome().toLowerCase().contains(nome.toLowerCase())) {
+				prods.add(p);
+			}
+		}
+		
+		return(prods);
 	}
 	
 }

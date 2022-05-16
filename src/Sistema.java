@@ -1,17 +1,22 @@
-import exemplo.Estoque;
+
 import exemplo.Lote;
 import exemplo.Produto;
+import exemplo.ProdutoRepository;
 
 public class Sistema {
 
 	public static void main(String[] args) {
 		
-		Produto produto = new Produto("Leite", "Parmalat");
-		Lote lote = new Lote(produto, 10L);
-		Estoque estoque = new Estoque();
+		Produto p1 = new Produto("Leite", "Parmalat", 10.5);
+		Produto p2 = new Produto("Leite Integral", "vale", 6.5);
+		Lote l1 = new Lote(p1, 10L);
+		ProdutoRepository estoque = new ProdutoRepository();
 		
-		System.out.println(produto);
-		System.out.println(lote);
+		estoque.addProduto(p1);
+		estoque.addProduto(p2);
+		
+		System.out.println(p1);
+		System.out.println(l1);
 	}
 }
 
