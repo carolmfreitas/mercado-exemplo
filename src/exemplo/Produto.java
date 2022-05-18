@@ -30,6 +30,10 @@ public class Produto {
 		return fabricante;
 	}
 	
+	public double getPreco() {
+		return preco;
+	}
+	
 	public String toString() {
 		return "Produto ID: " + getId() + " - Fabricante: " + getFabricante();
 	}

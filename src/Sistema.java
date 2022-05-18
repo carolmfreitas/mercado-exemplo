@@ -1,7 +1,7 @@
 
 import exemplo.Lote;
 import exemplo.Produto;
-import exemplo.ProdutoRepository;
+import repositories.ProdutoRepository;
 
 public class Sistema {
 
